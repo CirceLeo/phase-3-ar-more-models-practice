@@ -1,7 +1,7 @@
 Plant.destroy_all
 Plant.reset_pk_sequence
-PlantParent.destroy_all
-PlantParent.reset_pk_sequence
+Person.destroy_all
+Person.reset_pk_sequence
 PlantParenthood.destroy_all
 PlantParenthood.reset_pk_sequence
 Category.destroy_all
@@ -23,12 +23,14 @@ cactus_2 = Plant.create(species: "Cactus", bought: "20200517", color: "green", f
 
 # binding.pry
 
-joel = PlantParent.create(name: "Joel", responsible: false, age: 10_000)
-sylwia = PlantParent.create(name: "Sylwia", responsible: true, age: 31)
+joel = Person.create(name: "Joel", responsible: false, age: 10_000)
+sylwia = Person.create(name: "Sylwia", responsible: true, age: 31)
 
 PlantParenthood.create(plant_id: prayer_plant.id, person_id: joel.id, affection:0)
-PlantParenthood.create(plant_id: basil.id, plant_parent_id: joel.id, affection:1)
-PlantParenthood.create(plant_id: basil.id, plant_parent_id: sylwia.id, affection:10)
-PlantParenthood.create(plant_id: corn_tree.id, plant_parent_id: sylwia.id, affection:10)
+PlantParenthood.create(plant_id: basil.id, person_id: joel.id, affection:1)
+PlantParenthood.create(plant_id: basil.id, person_id: sylwia.id, affection:10)
+PlantParenthood.create(plant_id: corn_tree.id, person_id: sylwia.id, affection:10)
+
+PlantCategory.create(plant_id: cactus_2.id, category_id: 1)
 
 puts "🌱 🌱 🌱  SEEDED 🌱 🌱 🌱 🌱 "
