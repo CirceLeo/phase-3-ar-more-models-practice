@@ -33,4 +33,7 @@ PlantParenthood.create(plant_id: corn_tree.id, person_id: sylwia.id, affection:1
 
 PlantCategory.create(plant_id: cactus_2.id, category_id: 1)
 
+Watering.create(plant_id: basil.id, person_id: joel.id)
+Watering.create(plant_id: cactus_1.id, person_id: sylwia.id)
+
 puts "🌱 🌱 🌱  SEEDED 🌱 🌱 🌱 🌱 "

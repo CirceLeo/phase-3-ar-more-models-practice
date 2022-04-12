@@ -1,7 +1,14 @@
 class PlantParenthood < ActiveRecord::Base
 
-    belongs_to :people
+    belongs_to :person
     belongs_to :plant
+
+    def cap_affection
+        if self.affection > 11
+            self.affection = 11
+            self.save
+        end
+    end
 
     # def plant_parents
     #     # before ActiveRecord
